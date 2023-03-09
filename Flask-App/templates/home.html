@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <script src="https://kit.fontawesome.com/ab0e23d463.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{{url_for('static', filename  = 'css/style.css')}}">
+</head>
+
+<body>
+
+    <!-- Container Start -->
+    <div class="container">
+
+
+
+        <div class="Top"><!-- Top Start -->
+
+            <a href="/"><img src="{{url_for('static', filename  = 'Photo/1.jpg')}}"></a>
+
+            <i class="fas fa-clipboard-list"></i>
+
+            <div class="date">
+                <h3>{{todayDate}}</h3>
+            </div>
+
+        </div><!-- TOP END-->
+
+
+
+
+
+
+
+
+        <div class="middle"><!-- middle start -->
+            <div class="row">
+
+                {% for todo in allTodo %}
+                    <div class="toDo">
+                        <i class="far fa-circle"></i>
+                        <span>{{todo.title}}</span>
+                        <a href="/delete/{{todo.sno}}"><i class="fas fa-trash"></i></a>
+                        
+                    </div>
+                {% endfor %}
+                
+
+            </div>
+        </div><!-- middle end-->
+
+
+
+
+
+
+
+        <div class="bottom"><!-- Bottom Start -->
+            <form action="/" method="POST">
+                <input type="text" name = "title" placeholder="Add A todo item.">
+                <button type="submit">Add</button>
+            </form>
+        </div><!-- Botton End -->
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <!-- Container End -->
+
+
+
+
+</body>
+
+</html>
